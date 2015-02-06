@@ -6,7 +6,8 @@ consumerSecret = 'iD0SADTSudAr9wyoRrq5qSdSWDmLH89Je8LgOlBI'
 accessToken = 'tMPq8iaaoqvD3UvL0Cvb'
 accessTokenSecret = 'y3JpmLAP9NxIL0dLJKrIUUtHSjyOKlPYIClmWX0H'
 
-  myDeskUrl = 'https://purpleundulations.desk.com'
+myDeskUrl = 'https://purpleundulations.desk.com'
+
 API = "#{myDeskUrl}/api/v2"
 
 consumer = OAuth::Consumer.new(
@@ -22,8 +23,4 @@ ACCESS_TOKEN = OAuth::AccessToken.from_hash(
         :oauth_token_secret => accessTokenSecret
 )
 
-response = ACCESS_TOKEN.get("#{API}/users/current")
 
-puts response.body
-puts ''
-puts ACCESS_TOKEN.get("#{API}/cases").body
