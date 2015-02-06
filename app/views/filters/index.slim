@@ -1,1 +1,4 @@
-p #{@list}
+.filters
+  - @list.each do |item|
+    p
+      a href="/filters/#{item['id']}/cases" #{item['name']}

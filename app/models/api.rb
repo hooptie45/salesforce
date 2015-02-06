@@ -1,7 +1,7 @@
 class Api
 
   def self.get(url)
-    ACCESS_TOKEN.get("#{API}/#{url}").body
+    JSON.parse(ACCESS_TOKEN.get("#{API}/#{url}").body)['_embedded']['entries']
   end
 
   def self.classname
@@ -22,8 +22,9 @@ class Api
 
 
   class Filters < Api
-    def self.cases(id)
-      get "#{classname}/#{id}/cases"
+
+    def self.cases(filter_id)
+      get "#{classname}/#{filter_id}/cases"
     end
     
   end

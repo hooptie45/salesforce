@@ -1,3 +1,5 @@
+require 'json'
+
 class FiltersController < ApplicationController
   def index
     @list = Api::Filters.all
@@ -6,6 +8,6 @@ class FiltersController < ApplicationController
     @filter = Api::Filters.select(params[:id])
   end
   def cases
-    @list = Api::Filters.cases(params[:id])
+    @list = Api::Filters.cases(params[:filter_id])
   end
 end

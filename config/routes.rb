@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :cases
 
-  root 'static#default'
+  root 'filters#index'
   resources :filters do
     get 'cases'
   end
