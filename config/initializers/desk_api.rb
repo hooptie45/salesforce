@@ -6,19 +6,24 @@ consumerSecret = 'iD0SADTSudAr9wyoRrq5qSdSWDmLH89Je8LgOlBI'
 accessToken = 'tMPq8iaaoqvD3UvL0Cvb'
 accessTokenSecret = 'y3JpmLAP9NxIL0dLJKrIUUtHSjyOKlPYIClmWX0H'
 
+  myDeskUrl = 'https://purpleundulations.desk.com'
+API = "#{myDeskUrl}/api/v2"
+
 consumer = OAuth::Consumer.new(
         consumerKey,
         consumerSecret,
-        :site => 'https://purpleundulations.desk.com/',
+        :site => myDeskUrl,
         :scheme => :header
 )
 
-access_token = OAuth::AccessToken.from_hash(
+ACCESS_TOKEN = OAuth::AccessToken.from_hash(
         consumer,
         :oauth_token => accessToken,
         :oauth_token_secret => accessTokenSecret
 )
 
-response = access_token.get("https://purpleundulations.desk.com/api/v2/users/current")
+response = ACCESS_TOKEN.get("#{API}/users/current")
 
 puts response.body
+puts ''
+puts ACCESS_TOKEN.get("#{API}/cases").body
