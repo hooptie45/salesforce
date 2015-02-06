@@ -1,2 +1,2 @@
 # Directives module 
-angular.module('demo.directives', [])
+angular.module('desk.directives', [])

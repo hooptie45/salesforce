@@ -1,1 +1,1 @@
-angular.module('demo.factories', [])
+angular.module('desk.factories', [])

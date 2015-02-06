@@ -1,2 +1,2 @@
 # Controllers module 
-angular.module('demo.controllers', [])
+angular.module('desk.controllers', [])
