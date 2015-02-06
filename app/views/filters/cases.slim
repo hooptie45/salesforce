@@ -1,3 +1,4 @@
 - @list.each do |item|
-  p #{item.inspect}
-  p #{item['name']} #{item['id']}
+  p #{item['subject']} #{item['blurb']}
+
+pre #{JSON.pretty_generate(@list)}
