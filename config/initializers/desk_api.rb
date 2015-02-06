@@ -6,10 +6,6 @@ consumerSecret = 'iD0SADTSudAr9wyoRrq5qSdSWDmLH89Je8LgOlBI'
 accessToken = 'tMPq8iaaoqvD3UvL0Cvb'
 accessTokenSecret = 'y3JpmLAP9NxIL0dLJKrIUUtHSjyOKlPYIClmWX0H'
 
-websiteUrl = 'https://agile-cove-6334.herokuapp.com/'
-callbackUrl = 'https://agile-cove-6334.herokuapp.com/'
-supportUrl = 'https://agile-cove-6334.herokuapp.com/'
-
 consumer = OAuth::Consumer.new(
         consumerKey,
         consumerSecret,
