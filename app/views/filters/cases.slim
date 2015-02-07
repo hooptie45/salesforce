@@ -1,4 +1,7 @@
-- @list.each do |item|
-  p #{item['subject']} #{item['blurb']}
+.filters.cases
+  - @list.each do |item|
+    p 
+      span.subject #{item['subject']} 
+      span.label #{item['labels'].join(',')}
 
 pre #{JSON.pretty_generate(@list)}
