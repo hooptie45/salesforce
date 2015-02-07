@@ -1,0 +1,8 @@
+.cases
+  - @list.each do |item|
+    p 
+      span.subject #{item['subject']}
+    - item['labels'].each do |label|
+      p.label #{label}
+    br
+
