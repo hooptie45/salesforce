@@ -1,5 +1,3 @@
-require 'json'
-
 class FiltersController < ApplicationController
   def index
     @list = Api::Filters.all
