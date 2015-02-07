@@ -3,6 +3,10 @@ class Api
   def self.get(url)
     JSON.parse(ACCESS_TOKEN.get("#{API}/#{url}").body)['_embedded']['entries']
   end
+  
+  def self.post(url,body='')
+    ACCESS_TOKEN.post "#{API}/#{url}",body
+  end
 
   def self.classname
     self.name.gsub(/[^:]+::/,'').downcase
@@ -22,6 +26,9 @@ class Api
 
 
   class Labels < Api
+    def self.create(name)
+      post classname,%Q{ {"name":"#{name}"} }
+    end
   end
 
 

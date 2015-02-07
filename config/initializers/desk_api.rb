@@ -23,4 +23,3 @@ ACCESS_TOKEN = OAuth::AccessToken.from_hash(
         :oauth_token_secret => accessTokenSecret
 )
 
-
