@@ -21,6 +21,10 @@ class Api
   end
 
 
+  class Labels < Api
+  end
+
+
   class Filters < Api
 
     def self.cases(filter_id)

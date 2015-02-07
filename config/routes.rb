@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :cases
+  resources :labels
 
   root 'filters#index'
   resources :filters do
