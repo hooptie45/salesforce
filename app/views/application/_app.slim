@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    = render :partial => 'head'
+  body
+    #header
+      = render :partial => 'layouts/header'
+    #content
+      = yield
+    = render :partial => 'foot'
