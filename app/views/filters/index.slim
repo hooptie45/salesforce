@@ -1,4 +1,5 @@
 .filters
+  h1 Click the filter to display the cases
   - @list.each do |item|
     p
-      a href="/filters/#{item['id']}/cases" #{item['name']}
+      a href="#{filter_cases_path item['id']}" #{item['name']}

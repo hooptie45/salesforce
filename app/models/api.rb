@@ -8,6 +8,12 @@ class Api
     ACCESS_TOKEN.post "#{API}/#{url}",body
   end
 
+  def self.patch(url,body='',headers={})
+    headers['X-HTTP-Method-Override'] = 'PATCH'
+    body.gsub!(/'/,'"')
+    rsp = ACCESS_TOKEN.post "#{API}/#{url}",body,headers
+  end
+
   def self.classname
     self.name.gsub(/[^:]+::/,'').downcase
   end
@@ -22,6 +28,9 @@ class Api
 
 
   class Cases < Api
+    def self.replace(id,data)
+      patch "#{classname}/#{id}",%Q{ #{data} }
+    end
   end
 
 

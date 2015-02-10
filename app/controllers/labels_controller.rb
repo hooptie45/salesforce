@@ -7,6 +7,5 @@ class LabelsController < ApplicationController
     redirect_to labels_path
   end
   def new
-    @method = 'post'
   end
 end

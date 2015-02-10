@@ -1,6 +1,19 @@
 .filters.cases
-  - @list.each do |item|
+  - @cases.each do |item|
+    p
+      = item['id']
     p 
       span.subject #{item['subject']} 
       span.label #{item['labels'].join(',')}
-
+    div
+      form action="#{case_path item['id']}" method="post" accept-charset='UTF-8'
+        input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
+        input type='hidden' name='_method' value="put"
+        input type='hidden' name='filter_id' value="#{params['filter_id']}"
+        input type='hidden' name='case_id' value="#{item['id']}"
+        input type='hidden' name='subject' value="#{item['subject']}"
+        - @labels.each do |label|
+          p
+            input type='checkbox' name="labels['#{label['name']}']" checked=('checked' if item['labels'].index(label['name']))
+            = label['name']
+        input type='submit' value='submit'
