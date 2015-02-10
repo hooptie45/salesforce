@@ -1,9 +1,13 @@
 class Api
-
+  # shared api methods
   def self.get(url)
     JSON.parse(ACCESS_TOKEN.get("#{API}/#{url}").body)['_embedded']['entries']
   end
-  
+ 
+  def self.delete(url)
+    ACCESS_TOKEN.delete "{API}/#{url}"
+  end
+
   def self.post(url,body='')
     ACCESS_TOKEN.post "#{API}/#{url}",body
   end
@@ -26,21 +30,29 @@ class Api
     get "#{classname}/#{id}"
   end
 
-
+  def self.destroy(id)
+    delete "#{classname}/#{id}"
+  end
+  
+  # cases api methods
   class Cases < Api
+
     def self.replace(id,data)
       patch "#{classname}/#{id}",%Q{ #{data} }
     end
+
   end
 
-
+  # labels api methods
   class Labels < Api
+
     def self.create(name)
       post classname,%Q{ {"name":"#{name}"} }
     end
+
   end
 
-
+  # filters api methods
   class Filters < Api
 
     def self.cases(filter_id)

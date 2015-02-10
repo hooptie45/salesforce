@@ -1,3 +1,6 @@
-.labels
+h1 All Labels
+ul.labels
   - @list.each do |item|
-    p #{item['name']}
+    li 
+      span.name
+        = item['name']
