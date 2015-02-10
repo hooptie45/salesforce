@@ -1,9 +1,8 @@
 .filters.cases
+  h1 Reassign labels using the checkboxes
   - @cases.each do |item|
-    p
-      = item['id']
     p 
-      span.subject #{item['subject']} 
+      span.subject #{item['subject']}
       span.label #{item['labels'].join(',')}
     div
       form action="#{case_path item['id']}" method="post" accept-charset='UTF-8'
