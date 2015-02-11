@@ -2,8 +2,7 @@
   h1 Reassign labels using the checkboxes
   - @cases.each do |item|
     p 
-      span.subject #{item['subject']}
-      span.label #{item['labels'].join(',')}
+      h2.subject #{item['subject']}
     div
       form action="#{case_path item['id']}" method="post" accept-charset='UTF-8'
         input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
