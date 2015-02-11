@@ -34,15 +34,6 @@ class Api
     delete "#{classname}/#{id}"
   end
   
-  # cases api methods
-  class Cases < Api
-
-    def self.replace(id,data)
-      patch "#{classname}/#{id}",%Q{ #{data} }
-    end
-
-  end
-
   # labels api methods
   class Labels < Api
 
