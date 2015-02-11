@@ -14,5 +14,5 @@
         - @labels.each do |label|
           p
             input type='checkbox' name="labels['#{label['name']}']" checked=('checked' if item['labels'].index(label['name']))
-            = "#{label['id']} #{label['name']}"
+            = label['name']
         input type='submit' value='submit'
