@@ -19,6 +19,16 @@ describe 'Api' do
     end
 
   end
+
+  describe 'Cases' do
+
+    let(:first_case){ Api::Cases.all[0] }
+    let(:first_case_labels){ first_case['labels'] }
+    it "assigns labels to a case" do
+      puts first_case_labels
+    end
+
+  end
   
   describe 'Labels' do
 
@@ -36,7 +46,7 @@ describe 'Api' do
     it 'creates a new label' do
       Api::Labels.create(label_new_name)
       expect(Api::Labels.all.length).to eql 1 + labels_count_original
-      # unfortunately this cannot go in an "after" statement
+      # this does not work in an "after" statement
       ACCESS_TOKEN.delete "#{API}/labels/#{label_newest['id']}"
     end
 

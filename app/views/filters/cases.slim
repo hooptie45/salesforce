@@ -7,8 +7,6 @@
         input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
         input type='hidden' name='_method' value="put"
         input type='hidden' name='filter_id' value="#{params['filter_id']}"
-        input type='hidden' name='case_id' value="#{item['id']}"
-        input type='hidden' name='subject' value="#{item['subject']}"
         - @labels.each do |label|
           p
             input type='checkbox' name="labels['#{label['name']}']" checked=('checked' if item['labels'].index(label['name']))

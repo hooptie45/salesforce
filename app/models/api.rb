@@ -11,7 +11,7 @@ class Api
   def self.patch(url,body='',headers={})
     headers['X-HTTP-Method-Override'] = 'PATCH'
     body.gsub!(/'/,'"')
-    rsp = ACCESS_TOKEN.post "#{API}/#{url}",body,headers
+    ACCESS_TOKEN.post "#{API}/#{url}",body,headers
   end
 
   def self.classname
