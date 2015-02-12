@@ -22,10 +22,16 @@ describe 'Api' do
 
   describe 'Cases' do
 
+    let(:labels_all){ Api::Labels.all.map{|x| x['name'] } }
     let(:first_case){ Api::Cases.all[0] }
-    let(:first_case_labels){ first_case['labels'] }
+    let(:first_case_id){ first_case['id'] }
+    let!(:first_case_labels_original){ first_case['labels'] }
+    let(:labels_to_assign){ labels_all - first_case_labels_original }
+
     it "assigns labels to a case" do
-      puts first_case_labels
+      Api::Cases.replace first_case_id, %Q{ {"label_action":"replace", "labels": ["#{labels_to_assign.join('","')}"]} }
+      expect(labels_to_assign).to eq Api::Cases.all[0]['labels']
+      Api::Cases.replace first_case_id, %Q{ {"label_action":"replace", "labels": ["#{first_case_labels_original.join('","')}"]} }
     end
 
   end
