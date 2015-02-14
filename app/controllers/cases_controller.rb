@@ -1,9 +1,17 @@
 class CasesController < ApplicationController
   def show
     @case = Api::Cases.get params[:id]
+    respond_to do |format|
+      format.html
+      format.json { render json: @case }
+    end
   end
   def edit
     @case = Api::Cases.select params[:id]
+    respond_to do |format|
+      format.html
+      format.json { render json: @case }
+    end
   end
   def update
     # handle the elimination of all labels
