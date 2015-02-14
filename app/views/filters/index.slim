@@ -1,5 +1,13 @@
-.filters
-  h1 Click the filter to display the cases
-  - @list.each do |item|
-    p
-      a href="#{filter_cases_path item['id']}" #{item['name']}
+.title.row
+  .title.columns.large-12
+    h1 Click the filter to display the cases
+ul.filters.row
+  .columns.large-12
+    - while @list.length > 0 do
+      .filter.row
+        - filterColumns = 3
+        - (0..filterColumns-1).each do
+          - item = @list.shift
+          li.filter.columns class="large-#{12/filterColumns}"
+            - if item
+              a href="#{filter_cases_path item['id']}" #{item['name']}

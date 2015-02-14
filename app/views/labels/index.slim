@@ -1,6 +1,16 @@
-h1 All Labels
-ul.labels
-  - @list.each do |item|
-    li 
-      span.name
-        = item['name']
+.title.row
+  .title.columns.large-12
+    h1 All Assignable Labels
+ul.assignableLabel.row
+  .columns.large-12
+    - while @list.length > 0 do
+      .assignableLabel.row
+        - labelColumns = 3
+        - (0..labelColumns-1).each do
+          - item = @list.shift
+          li.assignableLabel.columns class="large-#{12/labelColumns}"
+            - if item
+              span 
+                = item['name']
+            - else
+              span &nbsp;

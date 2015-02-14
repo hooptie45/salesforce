@@ -3,8 +3,10 @@ html
   head
     = render :partial => 'head'
   body
-    #header
-      = render :partial => 'layouts/header'
-    #content
-      = yield
+    #header.row
+      .header.columns.large-12
+        = render :partial => 'layouts/header'
+    #content.row
+      .content.columns.large-12
+        = yield
     = render :partial => 'foot'

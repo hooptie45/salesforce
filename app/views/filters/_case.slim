@@ -1,0 +1,23 @@
+.subject.row
+  .columns.large-12
+    h4 #{item['subject']}
+ul.labels.all.form.row
+  form action="#{case_path item['id']}" method="post" accept-charset='UTF-8'
+    input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
+    input type='hidden' name='_method' value="put"
+    input type='hidden' name='filter_id' value="#{params['filter_id']}"
+    .columns.large-12
+      - for row in 0..labels.length/columns
+        .labels.row
+          - for column in 0..columns-1
+            - labelIndex = columns * row + column
+            - label = labels[labelIndex] 
+            - if label
+              li class="columns small-#{12/columns}"
+                -# creating the label id in the view because no new functionality is added, only semantics
+                - label['id'] = "labels_#{label['name'].downcase.gsub(/\s/,'_')}" 
+                input type='checkbox' id="#{label['id']}" name="labels['#{label['name']}']" checked=('checked' if item['labels'].index(label['name']))
+                label for="#{label['id']}"
+                  = label['name']
+    .columns.large-12
+      input type='submit' value='submit'
