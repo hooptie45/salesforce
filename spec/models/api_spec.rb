@@ -22,21 +22,29 @@ describe 'Api' do
 
   describe 'Cases' do
 
-    let(:labels_all){ Api::Labels.all.map{|x| x['name'] } }
+    def set_labels(labels)
+      Api::Cases.replace first_case_id, %Q{ {"label_action":"replace", "labels": ["#{labels.join('","')}"]} }
+    end
+
+    let(:labels_all){ Api::Labels.all.map{|x| x['name'] }.sort }
     let(:first_case){ Api::Cases.all[0] }
     let(:first_case_id){ first_case['id'] }
-    let!(:first_case_labels_original){ first_case['labels'] }
+    let!(:first_case_labels_original){ first_case['labels'].sort }
     let(:labels_to_assign){ labels_all - first_case_labels_original }
 
     it "assigns labels to a case" do
-      Api::Cases.replace first_case_id, %Q{ {"label_action":"replace", "labels": ["#{labels_to_assign.join('","')}"]} }
+      set_labels(labels_to_assign)
       expect(labels_to_assign).to eq Api::Cases.all[0]['labels']
-      Api::Cases.replace first_case_id, %Q{ {"label_action":"replace", "labels": ["#{first_case_labels_original.join('","')}"]} }
+      set_labels(first_case_labels_original)
     end
 
   end
   
   describe 'Labels' do
+
+    def delete_label(label_id)
+      ACCESS_TOKEN.delete "#{API}/labels/#{label_id}"
+    end
 
     let(:labels_all){ Api::Labels.all }
     let!(:labels_count_original){ labels_all.length }
@@ -53,7 +61,7 @@ describe 'Api' do
       Api::Labels.create(label_new_name)
       expect(Api::Labels.all.length).to eql 1 + labels_count_original
       # this does not work in an "after" statement
-      ACCESS_TOKEN.delete "#{API}/labels/#{label_newest['id']}"
+      delete_label label_newest['id']
     end
 
   end
