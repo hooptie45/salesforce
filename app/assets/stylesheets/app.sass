@@ -1,30 +1,20 @@
 $colorBodyBg: #eee
+$colorLabelsFormBg: #d8d8dd
 
 body
   background: $colorBodyBg
 
-h1
-  padding: 0.6em
-  font-size: 113%
-  font-weight: bold
-
-h2
-  padding:
-    top: 0.3em
-  font-weight: bold
-
-.case
-  margin-bottom: 1em
+.cases
+  .subject .columns
+    height: 4em
+  .row .case
+    border: 1em solid $colorBodyBg
 
 .labels
-  li
-    padding:
-      bottom: 0.5em
-  span.delete
-    padding: 2px
+  &.form .columns
+    background: $colorLabelsFormBg
 
 #header
-  padding: 1em
-    
+  padding: 1em 
   a
     margin: 1em
