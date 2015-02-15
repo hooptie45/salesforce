@@ -1,7 +1,7 @@
-.navigation.row
+.navigation.row x-ng-controller='NavigationController as ctrlNavigation' x-ng-init='ctrlNavigation.init()'
   .columns.large-4
-    a href='/filters' FILTERS
+    a x-ng-click="ctrlNavigation.click('filters','index')"  FILTERS
   .columns.large-4
-    a href='/labels' LABELS
+    a x-ng-click="ctrlNavigation.click('labels','index')" LABELS
   .columns.large-4
-    a href='/labels/new' NEW LABEL
+    a x-ng-click="ctrlNavigation.click('labels','new')" NEW LABEL

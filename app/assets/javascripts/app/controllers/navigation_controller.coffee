@@ -1,12 +1,13 @@
 angular.module('desk.controllers').
-controller 'NavigationController', ()->
+controller 'NavigationController', (NavigationFactory)->
 
   class NavigationController
 
     constructor: ->
-      console.log 'NavigationController constructor()'
 
     init: ->
-      console.log 'NavigationController init()'
+
+    click: (rc, ra)->
+      NavigationFactory.setContent(rc, ra)
 
   new NavigationController
