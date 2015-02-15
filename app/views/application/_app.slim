@@ -1,5 +1,5 @@
 doctype html
-html
+html.ng-cloak x-ng-app='desk'
   head
     = render :partial => 'head'
   body
@@ -7,6 +7,6 @@ html
       .header.columns.large-12
         = render :partial => 'layouts/header'
     #content.row
-      .content.columns.large-12
+      .content.columns.large-12 x-ng-controller='ContentController as ctrlContent' x-ng-init='ctrlContent.init()'
         = yield
     = render :partial => 'foot'
