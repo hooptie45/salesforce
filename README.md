@@ -11,8 +11,9 @@ To get this working locally you simply need to:
   1. download the source
   2. run ```bundle install```
   3. run ```rails s``` from within the working dir of the app
-  4. to run the rspec tests execute ```rspec``` from within the working dir of the app
-  5. to run the jasmine tests start the server with ```rails s``` then navigate to http://localhost:3000/teaspoon/default
+  4. to run the tests execute ```rspec``` from within the working dir of the app
 
 If you would like to see it working on Heroku, simply navigate to https://agile-cove-6334.herokuapp.com
 
+NOTE: This branch (feature/js) has the beginings of an angular.js UI feature.  When this feature was begun it was suspected to be not finishable within the time constraints of the project.  Nevertheless the feature was begun and is presented here in a feature branch where it will not affect the deployed release of the fully functioning software. 
+The Angular code is here https://github.com/purpleundulations/salesforce/tree/feature/js/app/assets/javascripts
