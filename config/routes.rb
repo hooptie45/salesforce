@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :cases
 
+  get 'templates/filters'
+  get 'templates/labels'
 end

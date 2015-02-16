@@ -1,5 +1,6 @@
 //= require underscore
 //= require angular
+//= require angular-route
 //= require app/controllers/config
 //= require app/directives/config
 //= require app/factories/config

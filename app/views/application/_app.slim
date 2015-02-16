@@ -7,5 +7,5 @@ html.ng-cloak x-ng-app='desk'
       .header.columns.large-12
         = render :partial => 'layouts/header'
     #content.row
-      .content.columns.large-12 x-ng-controller='ContentController as ctrlContent' x-ng-init='ctrlContent.init()'
+      .content.columns.large-12 x-ng-controller='ContentController as ctrlContent' x-ng-init='ctrlContent.init()' x-ng-view=''
     = render :partial => 'foot'

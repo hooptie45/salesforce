@@ -1,1 +1,1 @@
-angular.module('desk',['desk.controllers','desk.directives','desk.factories'])
+angular.module('desk',['ngRoute','desk.controllers','desk.directives','desk.factories'])
