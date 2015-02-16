@@ -1,0 +1,9 @@
+.title.row 
+  .title.columns.large-12
+    h1 Click the filter to display the cases
+ul.row
+  .columns.large-12
+    .filters x-ng-repeat="filter in filters"
+      .filter.row
+          li.filter.columns.large-
+            a href="" {{filter.id}} {{columns}}
