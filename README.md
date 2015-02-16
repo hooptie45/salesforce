@@ -15,4 +15,4 @@ To get this working locally you simply need to:
 
 If you would like to see it working on Heroku, simply navigate to https://agile-cove-6334.herokuapp.com
 
-NOTE: another branch exists (feature/js) which has the beginings of an angular.js UI feature.  When this feature was begun it was suspected to be not finishable within the time constraints of the project.  Therefore only the beginings are presented, and in a feature branch where they will not affect the deployed release of the fully functioning software, but are fully inspectable by a curious code reviewer.
+NOTE: another branch exists (feature/js) which has the angular.js UI feature.  The README has a special note and can be found here: https://github.com/purpleundulations/salesforce/blob/feature/js/README.md
